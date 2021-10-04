@@ -1,6 +1,6 @@
 {
     "name": "electron_node_red",
-    "version": "0.17.4",
+    "version": "0.20.0",
     "description": "Electron Node-RED application starter",
     "main": "main.js",
     "scripts": {
@@ -28,7 +28,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dceejay/electron-node-red.git"
+        "url": "git+https://github.com/angeloz/electron-node-red.git"
     },
     "dependencies": {
         "node-red": "*",
@@ -48,15 +48,16 @@
     ],
     "contributors": [
         {"name":"Dave Conway-Jones"},
-        {"name":"Nathanaël Lécaudé"}
+        {"name":"Nathanaël Lécaudé"},
+        {"name":"Angelo Zaia"}
     ],
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/dceejay/electron-node-red/issues"
+        "url": "https://github.com/angeloz/electron-node-red/issues"
     },
-    "homepage": "https://github.com/dceejay/electron-node-red#readme",
+    "homepage": "https://github.com/angeloz/electron-node-red#readme",
     "devDependencies": {
-        "electron": "^1.6.11",
+        "electron": "^12",
         "electron-rebuild": "*",
         "electron-squirrel-startup": "*",
         "electron-winstaller": "2.5.2"
