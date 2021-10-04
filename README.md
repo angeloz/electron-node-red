@@ -63,6 +63,8 @@ look at `https://github.com/LinusU/node-appdmg`
 `npm run build:linux64` or `npm run build:linux32` - for Intel Linux
 
 Look at `https://github.com/jordansissel/fpm`
+    
+    sudo gem install fpm
 
     fpm -s dir -t deb -f -n node-red-electron -v 0.16.2 -m your-email@example.com -a i386 Node-RED-linux-ia32/
     fpm -s dir -t deb -f -n node-red-electron -v 0.16.2 -m your-email@example.com -a x86_64 Node-RED-linux-x64/
