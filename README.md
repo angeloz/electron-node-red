@@ -35,13 +35,13 @@ If you want to distribute executables of this project, the easiest way is to use
 npm install --save-dev electron-packager
 
 # build for OSX 64 bits
-npm exec electron-packager . Node-RED --icon=nodered.icns --platform=darwin --arch=x64 --out=build --overwrite
+npx electron-packager . Node-RED --icon=nodered.icns --platform=darwin --arch=x64 --out=build --overwrite
 
 # build for Windows 64 bits
-npm exec electron-packager . Node-RED --icon=nodered.icns --platform=win32 --arch=x64  --out=build --asar=true --overwrite --win32metadata.CompanyName='IBM Corp.' --win32metadata.ProductName='Node-RED Electron'
+npx electron-packager . Node-RED --icon=nodered.icns --platform=win32 --arch=x64  --out=build --asar=true --overwrite --win32metadata.CompanyName='IBM Corp.' --win32metadata.ProductName='Node-RED Electron'
 
 # build for Linux 64 bits
-npm exec electron-packager . Node-RED --icon=nodered.icns --platform=linux --arch=x64 --out=build --overwrite
+npx electron-packager . Node-RED --icon=nodered.icns --platform=linux --arch=x64 --out=build --overwrite
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
