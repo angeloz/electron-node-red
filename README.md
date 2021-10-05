@@ -35,13 +35,13 @@ If you want to distribute executables of this project, the easiest way is to use
 npm install --save-dev electron-packager
 
 # build for OSX 64 bits
-npm exec electron-packager . Node-RED --icon=nodered.icns --platform=darwin --arch=x64 --out=build --overwrite
+npx electron-packager . Node-RED --icon=nodered.icns --platform=darwin --arch=x64 --out=build --overwrite
 
 # build for Windows 64 bits
-npm exec electron-packager . Node-RED --icon=nodered.icns --platform=win32 --arch=x64  --out=build --asar=true --overwrite --win32metadata.CompanyName='IBM Corp.' --win32metadata.ProductName='Node-RED Electron'
+npx electron-packager . Node-RED --icon=nodered.icns --platform=win32 --arch=x64  --out=build --asar=true --overwrite --win32metadata.CompanyName='IBM Corp.' --win32metadata.ProductName='Node-RED Electron'
 
 # build for Linux 64 bits
-npm exec electron-packager . Node-RED --icon=nodered.icns --platform=linux --arch=x64 --out=build --overwrite
+npx electron-packager . Node-RED --icon=nodered.icns --platform=linux --arch=x64 --out=build --overwrite
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
@@ -63,6 +63,8 @@ look at `https://github.com/LinusU/node-appdmg`
 `npm run build:linux64` or `npm run build:linux32` - for Intel Linux
 
 Look at `https://github.com/jordansissel/fpm`
+    
+    sudo gem install fpm
 
     fpm -s dir -t deb -f -n node-red-electron -v 0.16.2 -m your-email@example.com -a i386 Node-RED-linux-ia32/
     fpm -s dir -t deb -f -n node-red-electron -v 0.16.2 -m your-email@example.com -a x86_64 Node-RED-linux-x64/
