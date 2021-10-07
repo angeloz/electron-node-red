@@ -8,18 +8,41 @@ const flowfile = 'flows.json';
 const url = "/ui";
 // url for the editor page
 const urledit = "/admin";
-// tcp port to use
-//const listenPort = "18880"; // fix it just because
-const listenPort = parseInt(Math.random()*16383+49152) // or random ephemeral port
 
 const os = require('os');
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const {Menu, MenuItem} = electron;
+var listenPort;
+
 
 // this should be placed at top of main.js to handle squirrel setup events quickly
 if (handleSquirrelEvent()) { return; }
+
+var userdir;
+if (process.argv[1] && (process.argv[1] === "main.js")) {
+    userdir = __dirname;
+	console.log(process.argv[1]);
+	if (process.argv[2] && (process.argv[2]=== "admin")){
+		listenPort = "18880";
+		console.log(process.argv[2]);
+	} else {
+		listenPort = parseInt(Math.random()*16383+49152) // or random ephemeral port
+	}
+}
+else { // We set the user directory to be in the users home directory...
+    const fs = require('fs');
+    userdir = os.homedir() + '/.node-red';
+    if (!fs.existsSync(userdir)) {
+        fs.mkdirSync(userdir);
+    }
+    if (!fs.existsSync(userdir+"/"+flowfile)) {
+        fs.writeFileSync(userdir+"/"+flowfile, fs.readFileSync(__dirname+"/"+flowfile));
+    }
+}
+console.log("Setting UserDir to ",userdir);
+
 
 var http = require('http');
 var express = require("express");
@@ -34,21 +57,6 @@ var red_app = express();
 // Create a server
 var server = http.createServer(red_app);
 
-var userdir;
-if (process.argv[1] && (process.argv[1] === "main.js")) {
-    userdir = __dirname;
-}
-else { // We set the user directory to be in the users home directory...
-    const fs = require('fs');
-    userdir = os.homedir() + '/.node-red';
-    if (!fs.existsSync(userdir)) {
-        fs.mkdirSync(userdir);
-    }
-    if (!fs.existsSync(userdir+"/"+flowfile)) {
-        fs.writeFileSync(userdir+"/"+flowfile, fs.readFileSync(__dirname+"/"+flowfile));
-    }
-}
-console.log("Setting UserDir to ",userdir);
 
 // Create the settings object - see default settings.js file for other options
 var settings = {

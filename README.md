@@ -14,8 +14,17 @@ git clone https://github.com/angeloz/electron-node-red.git
 # Go into the repository
 cd electron-node-red
 # Install dependencies and run the app
-npm install && npm run clean && npm start
+npm install && npm run clean && npm run start
 ```
+
+##Create and modify node-red flows
+You can edit node-red flows by
+
+```bash
+# Start the app in admin mode
+npm run admin
+```
+and then connect your browser to http://localhost:18880/admin
 
 ## TL:DR - building runtimes
 
