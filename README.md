@@ -17,7 +17,7 @@ cd electron-node-red
 npm install && npm run clean && npm run start
 ```
 
-##Create and modify node-red flows
+## Create and modify node-red flows
 You can edit node-red flows by
 
 ```bash
